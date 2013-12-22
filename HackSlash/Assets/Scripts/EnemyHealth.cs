@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour {
+public class EnemyHealth : MonoBehaviour {
 	public int maxHealth = 100;
 	public int curHealth = 100;
 	
@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-		GUI.Box(new Rect(10, 10, healthBarLength, 20), curHealth + "/" + maxHealth);
+		GUI.Box(new Rect(Screen.width / 2 + 50, 10, healthBarLength, 20), curHealth + "/" + maxHealth);
 	}
 	
 	public void AdjustCurrentHealth(int adj) {
