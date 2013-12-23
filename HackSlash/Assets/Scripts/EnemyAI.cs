@@ -14,11 +14,17 @@ public class EnemyAI : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		GameObject go = GameObject.FindGameObjectWithTag("Player");
+		GameObject gameObject = GameObject.FindGameObjectWithTag("Player");
+		target = gameObject.transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		Debug.DrawLine(target.position, myTransform.position);
+
+		//Look at target
+		myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
+		//Move towards targer
+		myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime; 
 	}
 }
